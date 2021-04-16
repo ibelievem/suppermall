@@ -2,12 +2,14 @@
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
     <home-swiper :banners="banners"></home-swiper>
+    <recommend-view :recommends="recommends"></recommend-view>
   </div>
 </template>
 
 <script>
 import NavBar from "components/common/navbar/NavBar";
 import HomeSwiper from "./childComps/HomeSwiper";
+import RecommendView from "./childComps/RecommendView";
 
 import {getHomeMultidata} from "network/home";
 
@@ -15,7 +17,8 @@ export default {
   name: "Home",
   components:{
     NavBar,
-    HomeSwiper
+    HomeSwiper,
+    RecommendView
   },
   data(){
     return {
@@ -31,13 +34,9 @@ export default {
       // console.log(res)
       // 将响应的数据保存在变量中
       this.banners = res.data.banner.list;
-      // console.log(res.data.banner.list)
-      // console.log(res.data.banner)
-      // console.log(res.data)
-      // console.log(res)
-      // console.log(res.data.banner.list)
-      // this.recommends = res.data.recommend.list;
-      // console.log(res.data.recommend.list)
+      this.recommends = res.data.recommend.list;
+      // console.log(res.data.recommend.list);
+      // console.log(res.data.banner.list);
     })
   }
 }

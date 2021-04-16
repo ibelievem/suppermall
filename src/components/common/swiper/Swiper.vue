@@ -21,17 +21,14 @@ export default {
       type: Number,
       default: 3000
     },
-    // 延迟多久开始轮播
     animDuration: {
       type: Number,
       default: 300
     },
-    // 轮播比例
     moveRatio: {
       type: Number,
       default: 0.25
     },
-    // 显示轮播指示器
     showIndicator: {
       type: Boolean,
       default: true
