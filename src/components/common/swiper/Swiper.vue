@@ -29,9 +29,11 @@ export default {
       type: Number,
       default: 0.25
     },
+    // 显示轮播指示器
     showIndicator: {
       type: Boolean,
       default: true
+      // default: false
     }
   },
   data: function () {
