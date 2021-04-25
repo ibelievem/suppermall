@@ -4,9 +4,35 @@
     <home-swiper :banners="banners"></home-swiper>
     <recommend-view :recommends="recommends"></recommend-view>
     <feature-view></feature-view>
+    <tab-control :titles="titles" class="tab-control"></tab-control>
 
     <!--  填充内容，使得界面可以向下滚动  -->
     <ul>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
+      <li>列表</li>
       <li>列表</li>
       <li>列表</li>
       <li>列表</li>
@@ -53,6 +79,15 @@ export default {
       // 变量接收响应的数据
       banners:[],
       recommends:[],
+      titles:["流行","新款","精选"],
+
+      // js中的json数据格式中的key最好都带上引号
+      // 设计商品的数据结构模型
+      goods:{
+        "pop":{"page":0,"list":[]},
+        "news":{"page":0,"list":[]},
+        "sell":{"page":0,"list":[]},
+      }
     }
   },
   // 组件创建完发送网络请求
@@ -63,6 +98,7 @@ export default {
       // 将响应的数据保存在变量中
       this.banners = res.data.banner.list;
       this.recommends = res.data.recommend.list;
+      console.log(res.data)
       // console.log(res.data.recommend.list);
       // console.log(res.data.banner.list);
     })
@@ -77,9 +113,15 @@ export default {
     color: white;
   }
 
-  /* 原生解决滚动的问题 */
+  /* 原生方法解决滚动的问题 */
   #home {
     padding-top: 44px;
+  }
+
+  /* 原生方法解决吸顶效果 */
+  .tab-control {
+    position:sticky;
+    top:44px;
   }
 
 </style>
