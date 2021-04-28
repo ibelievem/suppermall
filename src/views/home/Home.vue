@@ -3,6 +3,7 @@
     <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
     <home-swiper :banners="banners"></home-swiper>
     <recommend-view :recommends="recommends"></recommend-view>
+    <!--  本周流行的信息  -->
     <feature-view></feature-view>
     <tab-control :titles="titles" class="tab-control"></tab-control>
 
@@ -96,9 +97,11 @@ export default {
     getHomeMultidata().then(res => {
       // console.log(res)
       // 将响应的数据保存在变量中
+      // 轮播图中的信息
       this.banners = res.data.banner.list;
+      // 推荐信息
       this.recommends = res.data.recommend.list;
-      console.log(res.data)
+      // console.log(res.data)
       // console.log(res.data.recommend.list);
       // console.log(res.data.banner.list);
     })
