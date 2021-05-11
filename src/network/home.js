@@ -9,6 +9,7 @@ export function getHomeMultidata(){
   })
 }
 
+
 // 首页中的商品信息：流行、新款、精选
 export function getHomeGoods(type,page){
   return request({
