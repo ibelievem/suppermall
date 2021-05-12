@@ -6,10 +6,12 @@
 
     <!--  本周流行的信息  -->
     <feature-view></feature-view>
-    <tab-control :titles="titles" class="tab-control"></tab-control>
+
+    <!--  父组件监听事件，并获取数据  -->
+    <tab-control :titles="titles" class="tab-control" @tabClick="tabClick"></tab-control>
 
     <!--  展示流行的数据  -->
-    <goods-list :goods="goods['pop'].list"></goods-list>
+    <goods-list :goods="showGoods"></goods-list>
 
     <!--  填充内容，使得界面可以向下滚动  -->
     <ul>
@@ -98,7 +100,8 @@
           "pop": {"page": 0, "list": []},
           "new": {"page": 0, "list": []},
           "sell": {"page": 0, "list": []},
-        }
+        },
+        currentType:"pop"
       }
     },
     // 组件创建完发送网络请求，其中只写主要的逻辑
@@ -112,9 +115,36 @@
       this.getHomeGoods("sell")
     },
 
+    // 使用计算属性
+    computed:{
+      showGoods(){
+        return this.goods[this.currentType].list
+      }
+    },
     // create()函数中只写主要的逻辑，具体详细的逻辑要在methods中去写
     methods: {
-      // 网络请求
+      /**
+        事件监听相关的方法
+      */
+      tabClick(index){
+        // console.log(index)
+        switch (index){
+          case 0:
+            this.currentType = "pop"
+                break
+          case 1:
+            this.currentType = "new"
+                break
+          case 2:
+            this.currentType = "sell"
+                break
+        }
+      },
+
+
+      /**
+       网络请求相关的方法
+       */
       // 1、请求多个数据
       getHomeMultidata() {
         getHomeMultidata().then(res => {

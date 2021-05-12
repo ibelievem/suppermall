@@ -29,6 +29,8 @@
       methods:{
         itemClick(index){
           this.currentIndex = index;
+          // 子组件发射事件
+          this.$emit("tabClick",index)
         }
       }
     }
