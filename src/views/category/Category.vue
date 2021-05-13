@@ -124,7 +124,23 @@ export default {
     // })
 
     this.scroll = new BScroll(document.querySelector(".wrapper"),{
+      // 侦测滚动的位置
+      probeType:2,
+
+      // 上拉
+      pullUpLoad:true
+
     })
+
+    // 侦测滚动的位置
+    // this.scroll.on("scroll",(position)=>{
+    //   console.log(position)
+    // })
+
+    this.scroll.on("pullingUp",()=>{
+      console.log("上拉加载更多")
+    })
+
   }
 }
 </script>
@@ -134,7 +150,7 @@ export default {
     height: 150px;
     background-color: red;
 
-    /*overflow: hidden;*/
+    overflow: hidden;
     /*overflow-y: scroll;*/
   }
 </style>
