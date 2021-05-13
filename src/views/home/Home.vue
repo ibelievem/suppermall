@@ -13,44 +13,6 @@
     <!--  展示流行的数据  -->
     <goods-list :goods="showGoods"></goods-list>
 
-    <!--  填充内容，使得界面可以向下滚动  -->
-    <ul>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-      <li>列表</li>
-    </ul>
   </div>
 </template>
 
@@ -170,7 +132,7 @@
           this.goods[type].list.push(...res.data.list)
           // 页码 + 1
           this.goods[type].page += 1
-          console.log(this.goods.pop.list)
+          // console.log(this.goods.pop.list)
         })
       }
     }

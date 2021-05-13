@@ -13,7 +13,8 @@ Vue.use(VueRouter)
 
 // 2、创建router
 const routes = [
-  {path: '', redirect: '/home',},
+  // {path: '', redirect: '/home',},
+  {path: '', redirect: '/category',},
   {path: '/home', component: Home,},
   {path: '/cart', component: Cart,},
   {path: '/category', component: Category,},
